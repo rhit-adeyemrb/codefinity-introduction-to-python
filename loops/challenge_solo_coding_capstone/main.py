@@ -9,4 +9,11 @@ RestockThresh = 30
 DiscountThresh = 100
 
 for item in inventory:
-    print(f'{inventory}: {inventory[item]}')
+    print(f'{item}: {inventory[item]}')
+    if inventory[item][0] < RestockThresh:
+        print(f'{item} need restocking.')
+    elif inventory[item][0] > RestockThresh and inventory[item][0] < DiscountThresh:
+        print(f'{item} should be sold at the regular price of {inventory[item][1]}.')
+    elif inventory[item][0] > DiscountThresh:
+        print(f'{item} should be sold at the discounted price of {inventory[item][2]:.2f}.')
+
